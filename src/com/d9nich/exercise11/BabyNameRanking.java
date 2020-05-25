@@ -20,14 +20,14 @@ import java.util.Scanner;
 
 public class BabyNameRanking extends Application {
 
-    private static final int START_YEAR = 2001;
-    private static final int FINISH_YEAR = 2010;
+    public static final int START_YEAR = 2001;
+    public static final int FINISH_YEAR = 2010;
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    private static void getRankingYearDiapason(HashMap<String, Integer>[] boys, HashMap<String, Integer>[] girls) {
+    public static void getRankingYearDiapason(HashMap<String, Integer>[] boys, HashMap<String, Integer>[] girls) {
         for (int i = START_YEAR; i <= FINISH_YEAR; i++) {
             HashMap<String, Integer> boy = new HashMap<>();
             boys[i - START_YEAR] = boy;
@@ -37,7 +37,7 @@ public class BabyNameRanking extends Application {
         }
     }
 
-    private static void getRankingYear(HashMap<String, Integer> boys, HashMap<String, Integer> girls, int year) {
+    public static void getRankingYear(HashMap<String, Integer> boys, HashMap<String, Integer> girls, int year) {
         try {
             URL url = new URL("http://liveexample.pearsoncmg.com/data/babynamesranking"
                     + year + ".txt");
@@ -55,7 +55,7 @@ public class BabyNameRanking extends Application {
         }
     }
 
-    private static int getNameRankInYear(HashMap<String, Integer>[] gender, int year, String name) {
+    public static int getNameRankInYear(HashMap<String, Integer>[] gender, int year, String name) {
         if (gender[year - START_YEAR].containsKey(name))
             return gender[year - START_YEAR].get(name);
         return -1;
